@@ -50,7 +50,7 @@ class MacroMAC:
         self.agent.load_state_dict(th.load("{}/macro_agent.th".format(path), map_location=lambda storage, loc: storage))
 
     def _build_agents(self, input_shape):
-        self.agent = agent_REGISTRY[self.args.macro_agent](input_shape, self.args)
+        self.agent = agent_REGISTRY["macro"](input_shape, self.args)
 
     def _build_inputs(self, batch, t):
         # Assumes homogenous agents with flat observations.
