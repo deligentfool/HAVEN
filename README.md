@@ -3,12 +3,7 @@
 ## Note
 HAVEN is  a novel value decomposition framework based on hierarchical reinforcement learning for the fully cooperative multi-agent problems.
 
-The implementation of the following methods can also be found in this codebase, which are finished by the authors of [PyMARL](https://github.com/oxwhirl/pymarl):
-- [**QMIX**: QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning](https://arxiv.org/abs/1803.11485)
-- [**COMA**: Counterfactual Multi-Agent Policy Gradients](https://arxiv.org/abs/1705.08926)
-- [**VDN**: Value-Decomposition Networks For Cooperative Multi-Agent Learning](https://arxiv.org/abs/1706.05296) 
-- [**IQL**: Independent Q-Learning](https://arxiv.org/abs/1511.08779)
-- [**QTRAN**: QTRAN: Learning to Factorize with Transformation for Cooperative Multi-Agent Reinforcement Learning](https://arxiv.org/abs/1905.05408)
+The implementation of HAVEN is based on the [PyMARL](https://github.com/oxwhirl/pymarl).
 
 PyMARL is written in PyTorch and uses [SMAC](https://github.com/oxwhirl/smac) as its environment.
 
@@ -20,7 +15,8 @@ cd docker
 bash build.sh
 ```
 
-Set up StarCraft II and SMAC:
+* Set up StarCraft II and SMAC:
+
 ```shell
 bash install_sc2.sh
 ```
@@ -31,11 +27,20 @@ The requirements.txt file can be used to install the necessary packages into a v
 
 It is worth noting that we run the all experiments on **SC2.4.6.2.69232**, not SC2.4.10. Performance is *not* always comparable between versions.
 
+* Set up Google Research Football:
+
+Follow the Quick Start in https://github.com/google-research/football.
+
 ## Run an experiment 
 
 ```shell
 python3 src/main.py --config=haven --env-config=sc2 with env_args.map_name=2s3z env_args.seed=1
 ```
+or
+```shell
+python3 src/main.py --config=haven --env-config=academy_3_vs_1_with_keeper with seed=1
+```
+
 
 The config files act as defaults for an algorithm or environment. 
 

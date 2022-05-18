@@ -13,8 +13,6 @@ macro_action_selector:
   epsilon_finish: 0.05
   epsilon_anneal_time: 50000
 
-runner: "episode"
-
 buffer_size: 5000
 
 # update the target network every {} episodes

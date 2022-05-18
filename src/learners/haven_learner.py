@@ -127,9 +127,6 @@ class HAVENLearner:
             mac_out.append(agent_outs)
         mac_out = th.stack(mac_out, dim=1)  # Concat over time
 
-        # Pick the Q-Values for the actions taken by each agent
-        chosen_action_qvals = th.gather(mac_out[:, :-1], dim=3, index=actions).squeeze(3)  # Remove the last dim
-
         # Calculate the Q-Values necessary for the target
         target_mac_out = []
         self.target_mac.init_hidden(batch.batch_size)

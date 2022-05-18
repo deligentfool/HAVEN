@@ -59,12 +59,20 @@ class MultiAgentEnv(object):
         raise NotImplementedError
 
     def get_env_info(self):
-        env_info = {"state_shape": self.get_state_size(),
-                    "obs_shape": self.get_obs_size(),
-                    "n_actions": self.get_total_actions(),
-                    "n_agents": self.n_agents,
-                    "episode_limit": self.episode_limit,
-                    "n_self_feature": self.get_self_feature_size(),
-                    "n_enemies": self.n_enemies,
-                    "unit_dim": self.unit_dim}
+        if not hasattr(self, 'env_name'):
+            env_info = {"state_shape": self.get_state_size(),
+                        "obs_shape": self.get_obs_size(),
+                        "n_actions": self.get_total_actions(),
+                        "n_agents": self.n_agents,
+                        "episode_limit": self.episode_limit,
+                        "n_self_feature": self.get_self_feature_size(),
+                        "n_enemies": self.n_enemies,
+                        "unit_dim": self.unit_dim}
+        else:
+            env_info = {"state_shape": self.get_state_size(),
+                        "obs_shape": self.get_obs_size(),
+                        "n_actions": self.get_total_actions(),
+                        "n_agents": self.n_agents,
+                        "episode_limit": self.episode_limit,
+                        "unit_dim": self.unit_dim}
         return env_info
